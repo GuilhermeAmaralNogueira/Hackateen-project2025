@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>AlfaLetras</title>
+  <link rel="stylesheet" href="styled.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="Logo.png" type="image/x-icon">
+
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="menu-box"><a href="home.html">Início</a></div>
+    <div class="menu-box"><a href="alfabeto.html">Alfabeto</a></div>
+    <div class="menu-box"><a href="Fale.html">Soletrar</a></div>
+    <div class="menu-box"><a href="desenhe.html">Desenhar</a></div>
+    <div class="menu-box"><a href="cursiva.html">Cursiva</a></div>
+    <div class="menu-box"><a href="Sobre.html">Sobre nós</a></div>
+    <div class="menu-box" id="image"><img src="Logo.png" alt="Logo" width="50px" height="50px"></div>
+    <link rel="icon" href="Logo.png" type="image/x-icon">
+  </div>
+  <div class="normal">
+    <div class="intro">
+        <h1 class="h">Bem-vindo ao AlfaLetras! Onde aprender é interagir!</h1>
+        <div class="h2-container">
+         <h2 class="h">É recomendado usar esse site com a ajuda de responsáveis ou amigos</h2>
+         <button onclick="falarFrase()">FALAR</button>
+        </div>
+        <img src="project.png" alt="Imagem do projeto" class="img-intro">
+        <br>
+        <div class="texto-intro">
+        
+        <div id="texto-ducao"> <p id="textoIntro" class="start-p">
+        Nosso objetivo é tornar o aprendizado das letras mais divertido e inclusivo!  
+        Aqui você pode explorar o alfabeto, montar palavras e ouvir como elas são pronunciadas.  
+        Tudo de forma simples, interativa e pensada para beneficiar todos.
+        <span class="espaco"></span>
+        Use o menu acima para navegar: veja o alfabeto, descubra como formar palavras com ele,
+        ou conheça mais sobre o nosso projeto em <strong>“Sobre nós”</strong>.  
+        </p></div> 
+        <button onclick ="falarIntro()">FALAR</button>
+    <br>
+    </div>
+    <div id="end-of-page">
+    <p id="textoFinal" class="start-p">
+        <strong>Vamos transformar o seu aprender em aventurar!</strong></p>
+    <button onclick ="falarFim()">FALAR</button>
+    <button onclick="window.location.href='alfabeto.html'">Ir para o Alfabeto</button>
+    </div>
+  </div>
+</div>
+    <script>
+  function falarFrase() {
+    const titulos = document.getElementsByClassName("h");
+    let texto = "";
+    for (let i = 0; i < titulos.length; i++) {
+      texto += titulos[i].innerText + " ";
+    }
+    if ('speechSynthesis' in window) {
+      const utter = new SpeechSynthesisUtterance(texto);
+      utter.lang = 'pt-BR';
+      speechSynthesis.speak(utter);
+    } else {
+      alert("Seu navegador não suporta leitura de voz.");
+    }
+  }
+
+  function falarIntro() {
+    const textComeco = document.getElementById("textoIntro").innerText;
+    const utter = new SpeechSynthesisUtterance(textComeco);
+    utter.lang = 'pt-BR';
+    speechSynthesis.speak(utter);
+  }
+  function falarFim() {
+    const textFinal = document.getElementById("textoFinal").innerText;
+    const utter = new SpeechSynthesisUtterance(textFinal);
+    utter.lang = 'pt-BR';
+    speechSynthesis.speak(utter);
+  }
+</script>
+
+</body>

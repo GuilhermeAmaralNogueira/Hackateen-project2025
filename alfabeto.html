@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Alfabeto</title>
+  <link rel="stylesheet" href="styled.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="Logo.png" type="image/x-icon">
+  
+
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="menu-box"><a href="home.html">Início</a></div>
+    <div class="menu-box"><a href="alfabeto.html">Alfabeto</a></div>
+    <div class="menu-box"><a href="Fale.html">Soletrar</a></div>
+    <div class="menu-box"><a href="desenhe.html">Desenhar</a></div>
+    <div class="menu-box"><a href="cursiva.html">Cursiva</a></div>
+    <div class="menu-box"><a href="Sobre.html">Sobre nós</a></div>
+
+    <div class="menu-box" id="image"><img src="Logo.png" alt="Logo" width="50px" height="50px"></div>
+  </div>
+  <div class="normal">
+  <h1>AlfaLetras</h1>
+  <p>Monte palavras clicando nas letras.</p>
+  <div id="display"></div>
+  
+  <div class="keyboard" id="keyboard"></div>
+  <button onclick="falarPalavra()">Falar Palavra</button>
+  <button onclick="limpar()">Limpar</button>
+  <button onclick="removerLetra()">Voltar</button>
+  <a href="cursiva.html" id="bottom-button">Cursiva</a>
+</div>
+  <script>
+    const letras = 'ABCÇDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const teclado = document.getElementById('keyboard');
+    const display = document.getElementById('display');
+    let palavra = '';
+    
+    letras.forEach(l => {
+      const btn = document.createElement('button');
+      btn.textContent = l;
+      btn.onclick = () => adicionarLetra(l);
+      teclado.appendChild(btn);
+    });
+
+    function adicionarLetra(l) {
+      palavra += l;
+      display.textContent = palavra;
+      falar(l);
+    }
+
+    function falarPalavra() {
+      if (palavra.trim() !== '') {
+        let palavraNormalizada = substituirAcentos(palavra.toLowerCase());
+        falar(palavraNormalizada);
+      }
+    }
+
+    function limpar() {
+      palavra = '';
+      display.textContent = '';
+    }
+
+    function removerLetra() {
+      palavra = palavra.slice(0, -1);
+      display.textContent = palavra;
+    }
+
+    function falar(texto) {
+      if ('speechSynthesis' in window) {
+        speechSynthesis.cancel(); // limpa fila
+        const utter = new SpeechSynthesisUtterance(texto);
+        utter.lang = 'pt-BR';
+        utter.volume = 1.0;
+        utter.rate = 1.5
+        speechSynthesis.speak(utter);
+      }
+    }
+
+    function substituirAcentos(txt) {
+      return txt
+        .replace(/nao/g, 'não')
+        .replace(/cao/g, 'cão')
+        .replace(/mao/g, 'mão')
+        .replace(/coraçao/g, 'coração')
+        .replace(/aviao/g, 'avião')
+        .replace(/funçao/g, 'função')
+        .replace(/maça/g, 'maçã')
+
+    }
+  </script>
+
+</body>
+
+</html>

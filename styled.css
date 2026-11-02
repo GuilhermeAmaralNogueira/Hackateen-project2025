@@ -1,0 +1,425 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #0b6cff, #c9dfff);
+  height: 100vh;
+  max-width: 100rem;
+  margin: 10px auto;
+  padding: 10px ; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+
+h1, p {
+  color: #ffffff;
+  font-family: 'Fredoka', sans-serif;
+
+}
+p{
+  font-size: 1rem; 
+  width: 60%;
+  margin: 10px auto;
+}
+
+#display {
+  margin: 15px auto;
+  padding: 10px;
+  border: 2px solid #003366;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 22px;
+  min-height: 30px;
+  background: #fff;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  max-width: 500px;
+  margin: 15px auto;
+}
+#keyboard button{
+  font-family: 'Fredoka', sans-serif;
+  font-size: 20px;   /* aumenta o tamanho */
+  font-weight: 600;  /* deixa mais grossa */
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.678);
+  transition: 0.2s;
+
+}
+p{
+  font: 300;
+  font-size: large;
+}
+h3{
+  color: white;
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  background: #0059b3;
+  color: white;
+  cursor: pointer;
+  text-shadow: 2px 2px rgb(82, 82, 82);
+}
+
+button:hover {
+  background: #003366;
+}
+.container {
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: calc(20px + 8px);
+    align-items: center; 
+    gap: 20px;
+
+}
+.menu-box {
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 20px;
+    padding-left: 0;
+    margin: 0;
+    gap: 20px; 
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: medium;
+  display: block;
+  padding: 20px;
+}
+.menu-box:hover{
+  background-color: #003d79da;
+}
+#image{
+  margin-left: auto;
+  padding: 0;
+  padding-top: 5px;
+}
+#letterContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 20px auto;
+  background-color: white;
+}
+
+#traceCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid #333;
+}
+
+#letterCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+#traceCanvas { z-index: 2; }
+#letterCanvas { z-index: 1; }
+h2{
+  color: red;
+  font-size: medium;
+}
+#end-of-page {
+  display: flex;           /* ativa flexbox */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente (opcional) */
+  gap: 10px;               /* espaço entre os botões */
+  margin: auto;      /* separação do conteúdo acima */
+  flex-wrap: wrap;         /* caso a tela seja pequena, os botões vão quebrar linha */
+}
+.intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px 30px; /* 20px vertical, 30px horizontal */
+  max-width: 900px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  flex-direction: row; /* mantém imagem e texto lado a lado */
+}
+.espaco {
+  display: inline-block;
+  height: 20px; /* altura do espaço que você quer */
+  width: 100%;  /* força a "linha" a quebrar visualmente */
+}
+.img-intro {
+  width: 425px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0; /* Evita que a imagem encolha */
+}
+
+.texto-intro {
+  flex: 1; /* O texto ocupa o restante do espaço */
+  text-align: justify;
+  font-size: 18px;
+}
+.start-p{
+  width: 100%;
+}
+.h {
+  margin: auto;
+  padding: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro > button:first-of-type {
+  position: absolute;
+  margin-right: auto; /* deixa pertinho do h2 */
+  align-self: flex-start;
+}
+.h2-container {
+  margin: auto;
+  display: flex;               /* coloca h2 e botão na mesma linha */
+  align-items: center;         /* alinha verticalmente */
+  justify-content: center; /* mantém tudo à esquerda; ou center para centralizar */
+  gap: 15px;                   /* distância entre o h2 e o botão */
+  margin-bottom: 20px;         /* dá um espaçamento em relação ao conteúdo abaixo */
+}
+
+.h2-container h2 {
+    margin: 0;                   /* remove margens padrão do h2 para o flex funcionar melhor */
+}
+
+.h2-container button {
+    flex-shrink: 0;               /* evita que o botão encolha se o texto for grande */
+}
+#textoIntro{
+  color: black;
+  text-shadow: none;
+  font-family: 'Fredoka', sans-serif;
+  border-radius: 30px;
+  background-color: white;
+  border: black solid;
+  padding: 10px;
+}
+#textoFinal{
+  color: black;
+  text-shadow: none;
+  font: 500;
+  font-family: 'Fredoka', sans-serif;
+  font-size: larger;
+}
+.team-member {
+  display: flex;         
+  justify-content: center; 
+  align-items: center;    
+  gap: 20px;                 
+  margin: auto auto 20px auto;
+  
+
+}
+
+.team-img {
+  height: 250px;
+  width: auto;
+  border-radius: calc(5px + 10px + 5px + 15px);   
+  padding-top: 10px;
+}
+
+.team-info p {
+  margin: 0;  
+  font-size: 17px;
+  width: 250px;
+  color: black;
+}
+.all{
+  border: solid black 5px;
+  border-radius: 30px;
+  margin: auto;
+  width: 600px;
+  padding: auto;
+  background-color: white;
+}
+#palavra{
+  border: solid black;
+  background-color: white;
+  color: black;
+  width: 500px;
+  margin: auto;
+  border-radius: calc(20px+8px);
+}
+.botao{
+
+  font-size: 18px;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 1px 2px black;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+#bottom-button{
+  position: fixed;      
+  bottom: 20px;          /* distancia do canto inferior */
+  right: 20px;           /* distancia do canto direito */
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #003366;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+}
+@font-face {
+    font-family: 'Cursiva';
+    src: url('fonts/Cursiva.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@media (max-width: 768px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  #display {
+    font-size: 18px;
+    width: 95%;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 100%;
+  }
+
+  p {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .img-intro {
+    width: 100%;
+    height: auto;
+  }
+
+  .team-member {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-info p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .all, #palavra {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 250px;
+    height: 250px;
+  }
+
+  #display {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+/* --- SEU CSS ORIGINAL AQUI INTACTO --- */
+
+/* Ajustes para tablets e celulares médios (até 768px) */
+@media (max-width: 768px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  #display {
+    font-size: 18px;
+    width: 95%;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+
+  p {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .img-intro {
+    width: 100%;
+    height: auto;
+  }
+
+  .team-member {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-info p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .all, #palavra {
+    width: 95%;
+  }
+}
+
+/* Ajustes específicos para celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 220px;
+    height: 220px;
+  }
+
+  #display {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  button, .botao {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p, h3 {
+    font-size: 0.85rem;
+  }
+
+  .img-intro {
+    width: 100%;
+  }
+
+  .all {
+    width: 100%;
+    margin: 10px auto;
+  }
+}
